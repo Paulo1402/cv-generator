@@ -1,0 +1,67 @@
+# Edit this file to update your CV. Remove any optional entry or section you don't want.
+name: Paulo Benatto
+title: Senior DevOps Engineer
+contacts:
+  - {icon: map-pin, text: 'Curitiba, Paraná, Brazil'}
+  - {icon: mail, text: 'paulobenatto02@gmail.com', url: 'mailto:paulobenatto02@gmail.com'}
+  - {icon: phone, text: '+55 (41) 98721-1886', url: 'tel:+5541987211886'}
+  - {icon: linkedin, text: 'linkedin.com/in/paulobenatto', url: 'https://linkedin.com/in/paulobenatto'}
+  - {icon: github, text: 'github.com/paulobenatto', url: 'https://github.com/paulobenatto'}
+  - {icon: link, text: 'paulobenatto.dev.br', url: 'https://paulobenatto.dev.br'}
+
+profile: >-
+  Software engineer with a background in Python development, DevOps, and
+  cloud infrastructure. Experienced in building APIs, automating workflows,
+  and supporting reliable software systems on AWS and Kubernetes.
+
+skills:
+  Languages: [Python, JavaScript, TypeScript, SQL, Go]
+  Backend: [Django, FastAPI, Node.js, REST APIs]
+  Frontend: [React, Next.js, Vue.js]
+  Cloud & DevOps: [AWS, Docker, Kubernetes, Helm, Terraform, Terragrunt, CI/CD, Linux, Datadog]
+  Data & Storage: [PostgreSQL, Redis, SQLAlchemy]
+  Practices & Tools: [Git, Automated Testing, Clean Code, SOLID]
+
+certificates:
+  - {name: 'PCEP – Certified Entry-Level Python Programming', issuer: 'Python Institute'}
+  - {name: 'AWS Cloud Practitioner', issuer: 'Amazon Web Services'}
+
+experience:
+  - role: Senior DevOps Engineer
+    company: Guidewire Software
+    location: Curitiba
+    dates: 'May 2025 – Present'
+    summary: 'Support availability, observability, and operational reliability of cloud-hosted products.'
+    bullets:
+      - 'Automate operations using Python, PowerShell, and shell scripting.'
+      - 'Manage infrastructure through Terraform and Terragrunt across 20+ AWS accounts.'
+      - 'Operate Kubernetes (EKS), build CI/CD pipelines with TeamCity, and monitor services using Datadog.'
+  - role: Python Software Engineer
+    company: Organia
+    location: Curitiba
+    dates: 'Nov 2024 – Jan 2025'
+    summary: 'Developed software for conversation analysis and transcription workflows.'
+    bullets:
+      - 'Built FastAPI services and Streamlit product interfaces.'
+      - 'Maintained PostgreSQL databases, automated tests, and integrations with AI providers.'
+  - role: JavaScript | Python Software Engineer
+    company: Floui
+    location: Curitiba
+    dates: 'Oct 2023 – Nov 2024'
+    summary: 'Developed a low-code integration and automation platform.'
+    bullets:
+      - 'Created integrations, backend APIs, and frontend features with Node.js and Vue.js.'
+      - 'Developed internal Python tools and end-to-end tests with Robot Framework.'
+
+projects:
+  - name: GW Inventory CLI
+    technologies: 'Python, AWS, Kubernetes'
+    description: 'CLI tool for gathering and classifying AWS and Kubernetes resource inventory across accounts and clusters.'
+  - name: Floui CLI
+    technologies: 'Python, Docker, OAuth2, SSH'
+    description: 'Developer CLI for generating connectors, running tests, inspecting containers, and integrating with external services.'
+
+education:
+  - degree: "Bachelor's in Software Engineering"
+    institution: 'UNINTER, Curitiba'
+    dates: 'Jul 2023 – Jul 2027'

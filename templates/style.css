@@ -1,0 +1,38 @@
+@page { size: A4; margin: 11mm 13mm 11mm 13mm; }
+* { box-sizing: border-box; }
+html { font-family: 'DejaVu Sans', 'Arial', sans-serif; color: #171717; font-size: 8.6pt; line-height: 1.38; }
+body { margin: 0; }
+a { color: inherit; text-decoration: none; }
+.document-header { border-bottom: 1px solid #d4d7d9; padding-bottom: 5mm; margin-bottom: 4mm; }
+.document-header h1 { font-size: 22pt; font-weight: 750; letter-spacing: .1px; line-height: 1.1; margin: 0 0 2.2mm; }
+.document-header p { font-size: 11.5pt; margin: 0; }
+/* Using table layout keeps the sidebar alongside the main column in paged media. */
+.two-columns { display: table; width: 100%; table-layout: fixed; }
+.sidebar, .main-content { display: table-cell; vertical-align: top; }
+.sidebar { width: 31%; padding-right: 7mm; border-right: 1px solid #d4d7d9; }
+.main-content { width: 69%; padding-left: 7mm; }
+.section-title { font-size: 12pt; font-weight: 650; line-height: 1.1; text-transform: uppercase; margin: 0 0 3mm; }
+.section-title::after { content: ''; display: block; background: #242424; width: 9mm; height: .6mm; margin-top: 2mm; }
+.sidebar-section { border-top: 1px solid #d4d7d9; margin-top: 7mm; padding-top: 6mm; }
+.contact-list { display: block; }
+.contact-row { display: flex; align-items: flex-start; gap: 3mm; margin-bottom: 3.6mm; overflow-wrap: anywhere; }
+.contact-row .icon { flex: 0 0 3.5mm; display: block; width: 3.5mm; height: 3.5mm; margin-top: .5mm; }
+.contact-row div { min-width: 0; font-size: 8.1pt; }
+.skill-group { margin: 0 0 4.2mm; break-inside: avoid; }
+.skill-group h3 { font-size: 8.7pt; margin: 0 0 .8mm; font-weight: 700; }
+.skill-group p { margin: 0; font-size: 8.15pt; }
+.certificate { margin-bottom: 3.8mm; break-inside: avoid; }
+.certificate strong { display: block; font-size: 8.1pt; font-weight: 600; }
+.certificate span { display: block; font-size: 7.7pt; color: #596474; margin-top: .4mm; }
+.main-section { margin-bottom: 2mm; padding-bottom: 1.7mm; border-bottom: 1px solid #e0e1e2; }
+.main-section:last-child { border-bottom: 0; margin-bottom: 0; }
+.main-section p { margin: 0 0 1mm; }
+.entry { margin-bottom: 3.0mm; break-inside: avoid; }
+.entry:last-child { margin-bottom: 0; }
+.entry h3 { font-size: 9.6pt; line-height: 1.25; margin: 0 0 1mm; font-weight: 700; }
+.entry .metadata { color: #596474; font-size: 8pt; margin-bottom: 2mm; }
+.separator { margin: 0 2mm; color: #89909a; }
+ul { padding-left: 5mm; margin: 1.1mm 0 0; }
+li { margin: 0 0 .55mm; }
+.project h3 { margin-bottom: .7mm; }
+.project .metadata { margin-bottom: .7mm; }

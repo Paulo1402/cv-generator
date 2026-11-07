@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ cv.name }} — CV</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  {% macro section_title(title) %}
+    <h2 class="section-title">{{ title }}</h2>
+  {% endmacro %}
+  {% macro symbol(icon) %}
+    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      {% if icon == 'map-pin' %}<path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/>
+      {% elif icon == 'mail' %}<rect x="2" y="5" width="20" height="14" rx="2"/><path d="m3 7 9 7 9-7"/>
+      {% elif icon == 'phone' %}<path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.5 19.5 0 0 1-8.5-3 19 19 0 0 1-6-6A19.5 19.5 0 0 1 2.3 4.4 2 2 0 0 1 4.3 2h3a2 2 0 0 1 2 1.7l.5 3a2 2 0 0 1-.6 1.8l-1.6 1.6a16 16 0 0 0 6 6l1.6-1.6a2 2 0 0 1 1.8-.6l3 .5a2 2 0 0 1 2 1.5Z"/>
+      {% elif icon == 'linkedin' %}<rect x="2" y="2" width="20" height="20" rx="2"/><path d="M7 10v7M7 7v.01M11 17v-7m0 3a3 3 0 0 1 6 0v4"/>
+      {% elif icon == 'github' %}<path d="M9 19c-5 2-5-2-7-2m14 4v-3.9a3.3 3.3 0 0 0-.9-2.6c3-.3 6-1.5 6-6.7A5.2 5.2 0 0 0 19.7 4a4.8 4.8 0 0 0-.1-3S18.4.7 16 2.7a13.4 13.4 0 0 0-8 0C5.6.7 4.4 1 4.4 1a4.8 4.8 0 0 0-.1 3A5.2 5.2 0 0 0 3 7.8c0 5.2 3 6.4 6 6.7a3.3 3.3 0 0 0-.9 2.6V21" transform="translate(1,1) scale(.9)"/>
+      {% else %}<path d="M10 13a5 5 0 0 0 7.1 0l3-3a5 5 0 0 0-7.1-7.1l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.1 0l-3 3a5 5 0 0 0 7.1 7.1l1.7-1.7"/>{% endif %}
+    </svg>
+  {% endmacro %}
+
+  <header class="document-header">
+    <h1>{{ cv.name | upper }}</h1>
+    <p>{{ cv.title }}</p>
+  </header>
+  <div class="two-columns">
+    <aside class="sidebar">
+      <section>
+        {{ section_title('Details') }}
+        <div class="contact-list">
+        {% for contact in cv.contacts %}
+          <div class="contact-row">
+            {{ symbol(contact.icon) }}
+            <div>{% if contact.url %}<a href="{{ contact.url }}">{{ contact.text }}</a>{% else %}{{ contact.text }}{% endif %}</div>
+          </div>
+        {% endfor %}
+        </div>
+      </section>
+      {% if cv.skills %}
+      <section class="sidebar-section">
+        {{ section_title('Skills') }}
+        {% for group, items in cv.skills.items() %}
+          <div class="skill-group">
+            <h3>{{ group }}</h3>
+            <p>{{ items | join(', ') }}</p>
+          </div>
+        {% endfor %}
+      </section>
+      {% endif %}
+      {% if cv.certificates %}
+      <section class="sidebar-section">
+        {{ section_title('Certificates') }}
+        {% for cert in cv.certificates %}
+        <div class="certificate"><strong>{{ cert.name }}</strong><span>{{ cert.issuer }}</span></div>
+        {% endfor %}
+      </section>
+      {% endif %}
+    </aside>
+    <main class="main-content">
+      {% if cv.profile %}<section class="main-section">
+        {{ section_title('Profile') }}
+        <p>{{ cv.profile }}</p>
+      </section>{% endif %}
+      {% if cv.experience %}<section class="main-section">
+        {{ section_title('Work Experience') }}
+        {% for item in cv.experience %}
+        <article class="entry">
+          <h3>{{ item.role }}</h3>
+          <p class="metadata">{{ item.company }}{% if item.location %}, {{ item.location }}{% endif %}<span class="separator">/</span>{{ item.dates }}</p>
+          {% if item.summary %}<p>{{ item.summary }}</p>{% endif %}
+          {% if item.bullets %}<ul>{% for bullet in item.bullets %}<li>{{ bullet }}</li>{% endfor %}</ul>{% endif %}
+        </article>
+        {% endfor %}
+      </section>{% endif %}
+      {% if cv.projects %}<section class="main-section">
+        {{ section_title('Projects') }}
+        {% for item in cv.projects %}
+        <article class="project entry">
+          <h3>{{ item.name }}</h3>
+          {% if item.technologies %}<p class="metadata">{{ item.technologies }}</p>{% endif %}
+          <p>{{ item.description }}</p>
+          {% if item.url %}<a href="{{ item.url }}">{{ item.url }}</a>{% endif %}
+        </article>
+        {% endfor %}
+      </section>{% endif %}
+      {% if cv.education %}<section class="main-section">
+        {{ section_title('Education') }}
+        {% for item in cv.education %}
+        <article class="entry"><h3>{{ item.degree }}</h3><p class="metadata">{{ item.institution }} <span class="separator">/</span> {{ item.dates }}</p></article>
+        {% endfor %}
+      </section>{% endif %}
+    </main>
+  </div>
+</body>
+</html>
