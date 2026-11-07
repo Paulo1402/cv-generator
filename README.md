@@ -18,9 +18,9 @@ See https://doc.courtbouillon.org/weasyprint/stable/first_steps.html if installa
 ## Generate
 
 ```bash
-python generate.py
+uv run generate
 # or
-python generate.py --data cv.yaml --output output/paulo-cv.pdf
+uv run generate --data cv.yaml --output output/paulo-cv.pdf
 ```
 
 ## Customize
